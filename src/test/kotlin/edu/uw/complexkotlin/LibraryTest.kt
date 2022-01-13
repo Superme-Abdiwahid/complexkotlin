@@ -12,17 +12,17 @@ class LibraryTest {
     }
 
     @Test fun fizzbuzzToFifteen() {
-        assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ", fizzbuzz(0..15))
+      assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZFIZZBUZZ", fizzbuzz(0..15))
     }
     @Test fun fizzbuzzToTwelve() {
         assertEquals("FIZZBUZZFIZZFIZZBUZZFIZZ", fizzbuzz(0..12))
     }
 
     @Test fun r1Test() {
-        assertEquals(">>> FOO: {BAR}", r1())
+      assertEquals(">>> FOO: {BAR}", r1())
     }
     @Test fun r2Test() {
-        assertEquals(">>> FOO: {WOOGAWOOGAWOOGA}", r2())
+      assertEquals(">>> FOO: {WOOGAWOOGAWOOGA}", r2())
     }
 
     @Test fun philosopherTests() {
@@ -31,19 +31,19 @@ class LibraryTest {
 
         // Shift to talking
         seneca = seneca.signal()
-        assertEquals("Allow me to suggest an idea...", seneca.toString())
+       assertEquals("Allow me to suggest an idea...", seneca.toString())
 
-        // Shift to thinking
-        seneca = seneca.signal()
-        assertEquals("Deep thoughts....", seneca.toString())
+     //   Shift to thinking
+       seneca = seneca.signal()
+       assertEquals("Deep thoughts....", seneca.toString())
 
-        // Shift back to talking
-        seneca = seneca.signal()
-        assertEquals("Allow me to suggest an idea...", seneca.toString())
+     //   Shift back to talking
+       seneca = seneca.signal()
+       assertEquals("Allow me to suggest an idea...", seneca.toString())
     }
 
     @Test fun commandTests() {
-        assertEquals("", Command("")(""))
-        assertEquals("> Hello!", Command("> ")("Hello!"))
+       assertEquals("", Command("")(""))
+     assertEquals("> Hello!", Command("> ")("Hello!"))
     }
 }
