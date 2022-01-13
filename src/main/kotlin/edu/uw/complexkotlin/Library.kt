@@ -29,19 +29,28 @@ val numbers2 = { numbers.map { n ->
 
 }}
 
-var range = "";
+//0 1 2 3 4 5 6 7 8 9 10 11 12
 
-val fizzbuzz : (IntRange) -> String = {range = (IntRange.map{n ->
-    if(n % 3 == 0){
-        "Fizz" + n;
-    }else if(n % 5 == 0){
-        "Buzz" + n;
-    }else{
-        ""
-    })
-    println(range.fold(""){sum, element -> sum + element})
 
-}})
+val fix = fun(range: IntRange) : String {
+    var list = range.map { n ->
+        if(n % 3 == 0 && n % 5 == 0 && n != 0) {
+            "FIZZBUZZ"
+           // System.out.println("Abdiwahid")
+        }else if(n % 3 == 0 && n % 5 != 0){
+                "FIZZ"
+            }else if(n % 5 == 0 && n % 3 != 0){
+            "BUZZ";
+        }else{
+            ""
+        }
+    }
+    return list.fold("") { sum, element -> sum + element }
+}
+
+val fizzbuzz = fix
+
+
 
 // Example usage
 /*
@@ -72,7 +81,7 @@ fun process(message: String, block: (String) -> String): String {
 // Create r1 as a lambda that calls process() with message "FOO" and a block that returns "BAR"
 val r1 = {">>> FOO: {BAR}"}
 
-// Create r2 as a lambda that calls process() with message "FOO" and a block that upper-cases 
+// Create r2 as a lambda that calls process() with message "FOO" and a block that upper-cases
 // r2_message, and repeats it three times with no spaces: "WOOGAWOOGAWOOGA"
 val r2_message = "wooga"
 val r2 = {">>> FOO: {WOOGAWOOGAWOOGA}"}
@@ -97,6 +106,6 @@ enum class Philosopher {
 // that takes a single parameter ("message" of type String)
 // primary constructor should take a String argument ("prompt")
 // when invoked, the Command object should return a String containing the prompt and then the message
-class Command(val prompt: String) { 
+class Command(val prompt: String) {
     operator fun invoke(actualPromt: String): String {return("$prompt$actualPromt")}
 }
